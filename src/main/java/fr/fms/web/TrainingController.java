@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api")
+//@CrossOrigin("*")
+//@RestController
 public class TrainingController {
     @Autowired
     private ImplTrainingService implTrainingService;
 
-    @GetMapping("/training")
+    @GetMapping("/trainings")
     public List<Training> allTrainings() throws Exception {
         return implTrainingService.getTraining();
     }
