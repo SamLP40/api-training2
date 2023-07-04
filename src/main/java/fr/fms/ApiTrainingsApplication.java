@@ -1,7 +1,9 @@
 package fr.fms;
 
 import fr.fms.dao.TrainingRepository;
+import fr.fms.dao.UserRepository;
 import fr.fms.entities.Training;
+import fr.fms.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +15,8 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 
 	@Autowired
 	private TrainingRepository trainingRepository;
+	@Autowired
+	private UserRepository userRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(ApiTrainingsApplication.class, args);
 	}
@@ -25,6 +29,7 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 		trainingRepository.save(new Training(null, "Python", "Django", 2500.0,3));
 		trainingRepository.save(new Training(null, "NodeJS", "JS", 999.99,6));
 		trainingRepository.save(new Training(null, "Word", "Office", 1350.0,30));
+		userRepository.save(new User(null, "test@gmail.com", "test"));
 
 	}
 }

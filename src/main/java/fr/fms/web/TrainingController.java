@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-//@CrossOrigin("*")
-//@RestController
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api")
 public class TrainingController {
     @Autowired
     private ImplTrainingService implTrainingService;

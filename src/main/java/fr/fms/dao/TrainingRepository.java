@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin("*")
-@RepositoryRestResource
+//@CrossOrigin("*")
+//@RepositoryRestResource
 public interface TrainingRepository extends JpaRepository <Training, Long> {
 
 }
