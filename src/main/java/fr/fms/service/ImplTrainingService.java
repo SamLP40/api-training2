@@ -1,7 +1,9 @@
 package fr.fms.service;
 
+import fr.fms.dao.ImageRepository;
 import fr.fms.dao.TrainingRepository;
 import fr.fms.dao.UserRepository;
+import fr.fms.entities.Image;
 import fr.fms.entities.Training;
 import fr.fms.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class ImplTrainingService implements ITrainingService {
     TrainingRepository trainingRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ImageRepository imageRepository;
     @Override
     public List<Training> getTraining() throws Exception {
 
@@ -42,5 +46,10 @@ public class ImplTrainingService implements ITrainingService {
     @Override
     public List<User> getUser() throws Exception {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<Image> getImage() throws Exception {
+        return imageRepository.findAll();
     }
 }

@@ -1,7 +1,9 @@
 package fr.fms;
 
+import fr.fms.dao.ImageRepository;
 import fr.fms.dao.TrainingRepository;
 import fr.fms.dao.UserRepository;
+import fr.fms.entities.Image;
 import fr.fms.entities.Training;
 import fr.fms.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 	private TrainingRepository trainingRepository;
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private ImageRepository imageRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ApiTrainingsApplication.class, args);
 	}
@@ -31,6 +36,14 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 		trainingRepository.save(new Training(null, "NodeJS", "JS", 999.99,6));
 		trainingRepository.save(new Training(null, "Word", "Office", 1350.0,30));
 		userRepository.save(new User(null, "test@gmail.com", "test"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\java.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\dotnet.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\powerbi.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\php.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\python.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\nodejs.png"));
+		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\word.png"));
+
 
 	}
 

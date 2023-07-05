@@ -1,5 +1,6 @@
 package fr.fms.service;
 
+import fr.fms.entities.Image;
 import fr.fms.entities.Training;
 import fr.fms.entities.User;
 
@@ -15,4 +16,6 @@ public interface ITrainingService  {
     public Optional<Training> getTrainingById(Long id);
 
     List<User> getUser() throws Exception;
+
+    List<Image> getImage() throws Exception;
 }
