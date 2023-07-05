@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @SpringBootApplication
 public class ApiTrainingsApplication implements CommandLineRunner {
@@ -32,4 +33,14 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 		userRepository.save(new User(null, "test@gmail.com", "test"));
 
 	}
+
+//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//		registry.addResourceHandler("/images/")
+//				.addResourceLocations("file:/path/to/your/images/directory/");
+//	}
 }
+
+// Requêtes à tester sur Postman :
+// Get/Post = OK, retourne 200 (get) et 201 (post)
+// Delete = fonctionne, la dernière donnée (User) a été supprimée (retourne 204)
+// Put(Update) = OK, passer par un get, modifier en passant par le body, copier, et entrer la requête put (avec l'id)

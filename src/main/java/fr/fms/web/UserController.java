@@ -19,7 +19,7 @@ public class UserController {
     private ImplTrainingService implTrainingService;
 
     @GetMapping("/users")
-    public List<User> allUsers() throws Exception {
+    public List<User> getUsers() throws Exception {
         return implTrainingService.getUser();
     }
 }

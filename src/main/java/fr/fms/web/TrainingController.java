@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
@@ -50,11 +52,24 @@ public class TrainingController {
         if(Objects.isNull(training)) {
             return ResponseEntity.noContent().build();
         }
+
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(training.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
+    }
+    @PutMapping("/training/{id}")
+    public ResponseEntity <Training> putTraining(@RequestBody Training train, @PathVariable Long id) {
+
+        Optional<Training> existingTraining=implTrainingService.getTrainingById(id);
+        if(existingTraining != null) {
+             train.setId(id);
+             Training updateTrainingStatus=implTrainingService.saveTraining(train);
+            return new ResponseEntity<>(updateTrainingStatus, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
