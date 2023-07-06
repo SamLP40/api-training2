@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 
 @SpringBootApplication
 public class ApiTrainingsApplication implements CommandLineRunner {
-
+	private static final String FOLDER = "C:\\Users\\Le-PorcherS\\Desktop\\img";
 	@Autowired
 	private TrainingRepository trainingRepository;
 	@Autowired
@@ -28,13 +28,13 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		trainingRepository.save(new Training(null, "Java", "SE8", 1500.0,10));
-		trainingRepository.save(new Training(null, "DotNet", "Core", 2000.0,10));
-		trainingRepository.save(new Training(null, "PowerBi", "Business Intelligence", 1650.0,7));
-		trainingRepository.save(new Training(null, "Php", "HTML mais en moins bien", 400.0,13));
-		trainingRepository.save(new Training(null, "Python", "Django", 2500.0,3));
-		trainingRepository.save(new Training(null, "NodeJS", "JS", 999.99,6));
-		trainingRepository.save(new Training(null, "Word", "Office", 1350.0,30));
+		trainingRepository.save(new Training(null, FOLDER, "Java", "SE8", 1500.0,10));
+		trainingRepository.save(new Training(null, FOLDER, "DotNet", "Core", 2000.0,10));
+		trainingRepository.save(new Training(null, FOLDER, "PowerBi", "Business Intelligence", 1650.0,7));
+		trainingRepository.save(new Training(null, FOLDER, "Php", "HTML mais en moins bien", 400.0,13));
+		trainingRepository.save(new Training(null, FOLDER, "Python", "Django", 2500.0,3));
+		trainingRepository.save(new Training(null, FOLDER, "NodeJS", "JS", 999.99,6));
+		trainingRepository.save(new Training(null, FOLDER, "Word", "Office", 1350.0,30));
 		userRepository.save(new User(null, "test@gmail.com", "test"));
 		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\java.png"));
 		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\dotnet.png"));

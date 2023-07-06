@@ -18,4 +18,9 @@ public interface ITrainingService  {
     List<User> getUser() throws Exception;
 
     List<Image> getImage() throws Exception;
+
+    public Image saveImage(Image img);
+    public void deleteImage(Long id);
+    public Optional<Image> getImageById(Long id);
+
 }

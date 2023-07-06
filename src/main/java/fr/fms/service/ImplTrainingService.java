@@ -52,4 +52,19 @@ public class ImplTrainingService implements ITrainingService {
     public List<Image> getImage() throws Exception {
         return imageRepository.findAll();
     }
+    @Override
+    public Image saveImage(Image img) { return imageRepository.save(img); }
+
+    @Override
+    public void deleteImage(Long id) {
+    }
+
+    public Optional<Image> getImageById(Long id) {
+        return Optional.empty();
+    }
+    public Optional<Image> readImage(Long id) {
+        Optional<Image> optional = imageRepository.findById(id);
+        return optional.isPresent() ? optional : null;
+    }
+
 }

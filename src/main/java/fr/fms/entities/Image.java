@@ -17,7 +17,7 @@ import javax.persistence.Id;
 @ToString
 public class Image {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Lier l'ID image à l'ID de chaque Training
+    private Long id;
     private String url;
 
 }
