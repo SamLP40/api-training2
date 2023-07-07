@@ -44,7 +44,6 @@ public class ApiTrainingsApplication implements CommandLineRunner {
 		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\nodejs.png"));
 		imageRepository.save(new Image(null, "C:\\Users\\Le-PorcherS\\Desktop\\img\\word.png"));
 
-
 	}
 
 //	public void addResourceHandlers(ResourceHandlerRegistry registry) {

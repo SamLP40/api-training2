@@ -1,6 +1,7 @@
 package fr.fms.web;
 
 import fr.fms.entities.Training;
+import fr.fms.exceptions.RecordNotFoundException;
 import fr.fms.service.ImplTrainingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,13 +37,11 @@ public class TrainingController {
         implTrainingService.deleteTraining(id);
     }
 
-    @GetMapping("/training/{id}")
-    public ResponseEntity<Training> getTrainingById(@PathVariable("id") Long id){
-        Optional<Training> training = implTrainingService.readTraining(id);
-        if(training.isPresent()) {
-            return new ResponseEntity<>(training.get(), HttpStatus.OK);
-        }
-        return null;
+    @GetMapping("/trainings/{id}")
+    public Training getTrainingById(@PathVariable("id") Long id){
+return implTrainingService.readTraining(id)
+        .orElseThrow( ()-> new RecordNotFoundException("l'Id de la formation "+ id +" n'existe pas"));
+
     }
 
     @PostMapping("/training")
