@@ -17,12 +17,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") // environment.ts => localhost:8080/api
 public class TrainingController {
     @Autowired
     private ImplTrainingService implTrainingService;
 
-    @GetMapping("/trainings")
+    @GetMapping("/trainings") // api/trainings
     public List<Training> allTrainings() throws Exception {
         return implTrainingService.getTraining();
     }
@@ -31,7 +31,7 @@ public class TrainingController {
         return implTrainingService.saveTraining(t);
     } */
 
-    @DeleteMapping("/training/{id}")
+    @DeleteMapping("/training/{id}") // api/training/nom de la formation
     public void deleteTraining(@PathVariable("id") Long id) {
         implTrainingService.deleteTraining(id);
     }
